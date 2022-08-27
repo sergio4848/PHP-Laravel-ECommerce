@@ -7,7 +7,7 @@
             &copy;
             <script>
                 document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by Tuğba BOZAN for a better web.
+            </script>, made with <i class="material-icons">favorite</i> by Sergen ŞAHİN for a better web.
         </div>
     </div>
 </footer>

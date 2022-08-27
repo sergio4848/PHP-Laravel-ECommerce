@@ -38,7 +38,7 @@
                                             <td>{{$rs->price}}₺</td>
                                             <td>
                                                 @if ($rs->image)
-                                                    <img src="{{Storage::url($rs->image)}}" height="30" alt="">
+                                                    <img src="{{Storage::url($rs->image)}}" height="60" alt="">
                                                 @endif
                                             </td>
                                             <td><a href="{{route('admin_image_add', ['product_id' =>$rs->id])}}" onclick="return !window.open(this.href, '','top=50, left=100, width=1100, height=700')">

@@ -1,17 +1,19 @@
+<!-- SLIDER -->
 <div class="rev_slider_wrapper fullwidthbanner-container">
-    <div id="rev-slider1" class="rev_slider fullwidthabanner">
+    <div id="rev-slider4" class="rev_slider fullwidthabanner">
         <ul>
             <!-- Slide 1 -->
+            @foreach($slider as $rs)
             <li data-transition="random">
                 <!-- Main Image -->
-                <img src="{{asset('assets')}}/images/slider/slider-bg-5.jpg" alt="" data-bgposition="center center" data-no-retina>
+                <img src="{{ Storage::url($rs->image) }}" alt="" data-bgposition="center center" data-no-retina>
 
                 <!-- Layers -->
-                <div class="tp-caption tp-resizeme text-white font-weight-300"
-                     data-x="['left','left','left','center']" data-hoffset="['0','0','0','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['-93','-93','-93','-93']"
-                     data-fontsize="['24','24','24','18']"
-                     data-lineheight="['72','72','72','36']"
+                <div class="tp-caption tp-resizeme text-333 letter-spacing-3 text-center font-weight-300"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="['-68','-68','-68','-68']"
+                     data-fontsize="['30','30','30','25']"
+                     data-lineheight="['36','36','36','36']"
                      data-width="full"
                      data-height="none"
                      data-whitespace="normal"
@@ -24,14 +26,14 @@
                      data-splitin="none"
                      data-splitout="none"
                      data-responsive_offset="on">
-                    NEW TREND 2018
+                    <span class="text-line left"></span>{{$rs->title}}<span class="text-line right"></span>
                 </div>
 
-                <div class="tp-caption tp-resizeme text-white font-weight-500"
-                     data-x="['left','left','left','center']" data-hoffset="['0','0','0','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['-42','-42','-42','-42']"
-                     data-fontsize="['52','52','52','40']"
-                     data-lineheight="['60','60','60','40']"
+                <div class="tp-caption tp-resizeme font-weight-300 letter-spacing-12 text-center"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="['37','37','37','0']"
+                     data-fontsize="['130','130','130','80']"
+                     data-lineheight="['130','130','130','130']"
                      data-width="full"
                      data-height="none"
                      data-whitespace="normal"
@@ -44,32 +46,12 @@
                      data-splitin="none"
                      data-splitout="none"
                      data-responsive_offset="on">
-                    New Collection
+                    <span class="text-accent">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category,$rs->category->title) }}</span>
                 </div>
 
-                <div class="tp-caption tp-resizeme text-white font-weight-400 "
-                     data-x="['left','left','left','center']" data-hoffset="['0','0','0','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['12','12','12','12']"
-                     data-fontsize="['18','18','18','16']"
-                     data-lineheight="['72','72','72','38']"
-                     data-width="full"
-                     data-height="none"
-                     data-whitespace="normal"
-                     data-transform_idle="o:1;"
-                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                     data-mask_in="x:0px;y:[100%];"
-                     data-mask_out="x:inherit;y:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on">
-                    BIG SALE OF THIS WEEK UP TO 30%
-                </div>
-
-                <div class="tp-caption"
-                     data-x="['left','left','left','center']" data-hoffset="['0','0','0','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['80','80','80','80']"
+                <div class="tp-caption text-center"
+                     data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']"
+                     data-y="['middle','middle','middle','middle']" data-voffset="['155','155','155','80']"
                      data-width="full"
                      data-height="none"
                      data-whitespace="normal"
@@ -86,91 +68,9 @@
                 </div>
             </li>
             <!-- /End Slide 1 -->
-
+        @endforeach
             <!-- Slide 2 -->
-            <li data-transition="random">
-                <!-- Main Image -->
-                <img src="{{asset('assets')}}/images/slider/slider-bg-1.jpg" alt="" data-bgposition="center center" data-no-retina>
 
-                <!-- Layers -->
-                <div class="tp-caption tp-resizeme text-333 font-weight-400 text-right"
-                     data-x="['right','right','right','center']" data-hoffset="['33','33','33','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['-115','-115','-115','-115']"
-                     data-fontsize="['22','22','22','22']"
-                     data-lineheight="['60','60','60','60']"
-                     data-width="full"
-                     data-height="none"
-                     data-whitespace="normal"
-                     data-transform_idle="o:1;"
-                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                     data-mask_in="x:0px;y:[100%];"
-                     data-mask_out="x:inherit;y:inherit;"
-                     data-start="700"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on">
-                    <span class="text-line left"></span>Summer Fashion<span class="text-line right"></span>
-                </div>
-
-                <div class="tp-caption tp-resizeme text-333 font-weight-500 letter-spacing-10 text-right"
-                     data-x="['right','right','right','center']" data-hoffset="['13','13','13','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['-39','-39','-39','-59']"
-                     data-fontsize="['130','130','130','60']"
-                     data-lineheight="['130','130','130','60']"
-                     data-width="full"
-                     data-height="none"
-                     data-whitespace="normal"
-                     data-transform_idle="o:1;"
-                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                     data-mask_in="x:0px;y:[100%];"
-                     data-mask_out="x:inherit;y:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on">
-                    SALE
-                </div>
-
-                <div class="tp-caption tp-resizeme text-333 font-weight-400 text-right"
-                     data-x="['right','right','right','center']" data-hoffset="['13','13','13','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['50','50','50','5']"
-                     data-fontsize="['48','48','48','28']"
-                     data-lineheight="['60','60','60','40']"
-                     data-width="full"
-                     data-height="none"
-                     data-whitespace="normal"
-                     data-transform_idle="o:1;"
-                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                     data-mask_in="x:0px;y:[100%];"
-                     data-mask_out="x:inherit;y:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on">
-                    UP TO <span class="text-accent">30%</span> OFF
-                </div>
-
-                <div class="tp-caption text-right"
-                     data-x="['right','right','right','center']" data-hoffset="['105','105','105','0']"
-                     data-y="['middle','middle','middle','middle']" data-voffset="['138','138','138','80']"
-                     data-width="full"
-                     data-height="none"
-                     data-whitespace="normal"
-                     data-transform_idle="o:1;"
-                     data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                     data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                     data-mask_in="x:0px;y:[100%];"
-                     data-mask_out="x:inherit;y:inherit;"
-                     data-start="1000"
-                     data-splitin="none"
-                     data-splitout="none"
-                     data-responsive_offset="on">
-                    <a href="#" class="themesflat-button bg-accent has-shadow"><span>BY NOW</span></a>
-                </div>
-            </li>
             <!-- /End Slide 2 -->
         </ul>
     </div>

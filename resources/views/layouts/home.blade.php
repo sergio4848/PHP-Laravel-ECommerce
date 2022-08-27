@@ -27,25 +27,14 @@
 
 
     <!-- Favicon and touch icons  -->
-    <link href="{{asset('assets')}}/icon/favicon.png" rel="shortcut icon">
+    <link href="{{asset('assets')}}/iconfavicon.png" rel="shortcut icon">
 
     <!--[if lt IE 9]>
     <script src="{{asset('assets')}}/javascript/html5shiv.js"></script>
     <script src="{{asset('assets')}}/javascript/respond.min.js"></script>
     <![endif]-->
-
-    @yield('css')
-    @yield('headerjs')
-
 </head>
-<body class="header_sticky header-style-1 has-menu-extra">
-<!-- Preloader -->
-<div id="loading-overlay">
-    <div class="loader"></div>
-</div>
 
-<!-- Boxed -->
-<div class="boxed">
 
 
 

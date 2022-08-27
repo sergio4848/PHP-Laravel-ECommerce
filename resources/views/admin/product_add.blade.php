@@ -1,13 +1,12 @@
 @extends('layouts.admin')
 
 @section('title','Ürün Ekle')
-@section('javascript')
+
     <head>
         @FilemanagerScript
     </head>
     <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 
-@endsection
 
 
 
