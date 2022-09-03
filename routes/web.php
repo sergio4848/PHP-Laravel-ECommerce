@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
 Route::get('/categoryproducts/{id}/{slug}', [HomeController::class, 'categoryproducts'])->name('categoryproducts');
-
+Route::post('/sendreview/{id}/{slug}', [HomeController::class, 'sendreview'])->name('sendreview');
 
 //Admin
 Route::middleware('auth')->prefix('admin')->group(function () {
@@ -111,6 +112,57 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         });
     });
 
+
+});
+
+
+Route::middleware('auth')->prefix('user')->namespace('user')->group(function () {
+    Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('userprofile');
+
+    Route::prefix('review')->group(function () {
+
+        Route::get('/', [\App\Http\Controllers\ReviewController::class, 'index'])->name('user_review');
+        Route::post('update/{id}', [\App\Http\Controllers\ReviewController::class, 'update'])->name('user_review_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\ReviewController::class, 'destroy'])->name('user_review_delete');
+        Route::get('show/{id}', [\App\Http\Controllers\ReviewController::class, 'show'])->name('user_review_show');
+
+    });
+    Route::prefix('product')->group(function () {
+        Route::get('/', [\App\Http\Controllers\ProductController::class, 'index'])->name('user_products');
+        Route::get('create', [\App\Http\Controllers\ProductController::class, 'create'])->name('user_product_create');
+        Route::post('store', [\App\Http\Controllers\ProductController::class, 'store'])->name('user_product_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\ProductController::class, 'edit'])->name('user_product_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\ProductController::class, 'update'])->name('user_product_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\ProductController::class, 'destroy'])->name('user_product_delete');
+        Route::get('show', [\App\Http\Controllers\ProductController::class, 'show'])->name('user_product_show');
+
+    });
+    Route::prefix('image')->group(function () {
+
+        Route::get('create/{product_id}', [\App\Http\Controllers\ImageController::class, 'create'])->name('user_image_add');
+        Route::post('store/{product_id}', [\App\Http\Controllers\ImageController::class, 'store'])->name('user_image_store');
+        Route::get('delete/{id}/{product_id}', [\App\Http\Controllers\ImageController::class, 'destroy'])->name('user_image_delete');
+        Route::get('show', [\App\Http\Controllers\ImageController::class, 'show'])->name('user_image_show');
+
+
+    });
+    Route::prefix('shopcart')->group(function (){
+        Route::get('/',[\App\Http\Controllers\ShopcartController::class,'index'])->name('user_shopcart');
+        Route::post('store/{id}',[\App\Http\Controllers\ShopcartController::class,'store'])->name('user_shopcart_add');
+        Route::post('update/{id}',[\App\Http\Controllers\ShopcartController::class,'update'])->name('user_shopcart_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\ShopcartController::class,'destroy'])->name('user_shopcart_delete');
+
+
+    });
+    Route::prefix('order')->group(function (){
+        Route::get('/',[\App\Http\Controllers\OrderController::class,'index'])->name('user_orders');
+        Route::post('create',[\App\Http\Controllers\OrderController::class,'create'])->name('user_order_add');
+        Route::post('store',[\App\Http\Controllers\OrderController::class,'store'])->name('user_order_store');
+        Route::get('edit/{id}',[\App\Http\Controllers\OrderController::class,'edit'])->name('user_order_edit');
+        Route::post('update/{id}',[\App\Http\Controllers\OrderController::class,'update'])->name('user_order_update');
+        Route::get('delete/{id}',[\App\Http\Controllers\OrderController::class,'destroy'])->name('user_order_delete');
+        Route::get('show/{id}',[\App\Http\Controllers\OrderController::class,'show'])->name('user_order_show');
+    });
 
 });
 

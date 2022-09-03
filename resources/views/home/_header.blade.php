@@ -27,20 +27,32 @@
                     <li class="box-login">
                         <a class="icon_login" href="#"></a>
                     </li>
+                    @auth
                     <li class="box-cart nav-top-cart-wrapper">
-                        <a class="icon_cart nav-cart-trigger active" href="#"><span>3</span></a>
+                        <a class="icon_cart nav-cart-trigger active" href="{{route('user_shopcart')}}"><span>{{\App\Http\Controllers\ShopcartController::countshopcart()}}</span></a>
                         <div class="nav-shop-cart">
                             <div class="widget_shopping_cart_content">
                                 <div class="woocommerce-min-cart-wrap">
                                     <ul class="woocommerce-mini-cart cart_list product_list_widget ">
+                                        @foreach($shopcart as $rs)
                                         <li class="woocommerce-mini-cart-item mini_cart_item">
-                                            <span>No Items in Shopping Cart</span>
+                                            <span>{{$rs->product->title}}<img src="{{ Storage::url($rs->product->image) }}" alt="image" style="height: 50px;"></span>
                                         </li>
+                                        @endforeach
+
                                     </ul>
+                                    <div class="add-to-cart text-center">
+                                        <a href="{{route('user_shopcart')}}">SEPETE GİT</a>
+                                    </div>
                                 </div><!-- /.widget_shopping_cart_content -->
                             </div>
                         </div><!-- /.nav-shop-cart -->
                     </li>
+                    @else
+                    <li class="box-cart nav-top-cart-wrapper">
+                        <a class="icon_cart nav-cart-trigger active" href="/login"><span></span></a>
+                    </li>
+                    @endauth
                 </ul><!-- /.menu-extra -->
                 <div class="nav-wrap">
                     <nav id="mainnav" class="mainnav">

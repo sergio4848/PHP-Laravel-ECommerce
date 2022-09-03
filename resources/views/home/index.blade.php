@@ -114,20 +114,10 @@
                                             <span class="amount">{{$rs->price}}₺</span>
                                         </ins>
                                     </div>
-                                    <ul class="flat-color-list width-14">
-                                        <li>
-                                            <a href="#" class="red"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="blue"></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="black"></a>
-                                        </li>
-                                    </ul>
+
                                 </div>
                                 <div class="add-to-cart text-center">
-                                    <a href="#">SEPETE EKLE</a>
+                                    <a href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}">ÜRÜNÜ İNCELE</a>
                                 </div>
                                 <a href="#" class="like"><i class="fa fa-heart-o"></i></a>
                             </li>

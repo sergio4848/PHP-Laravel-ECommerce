@@ -64,7 +64,7 @@
                      data-splitin="none"
                      data-splitout="none"
                      data-responsive_offset="on">
-                    <a href="#" class="themesflat-button has-padding-36 bg-accent has-shadow"><span>SHOP NOW</span></a>
+                    <a href="{{route('product',['id' => $rs->id,'slug' => $rs->slug])}}" class="themesflat-button has-padding-36 bg-accent has-shadow"><span>SHOP NOW</span></a>
                 </div>
             </li>
             <!-- /End Slide 1 -->
