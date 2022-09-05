@@ -88,7 +88,6 @@ class SettingController extends Controller
         $data->company = $request->input('company');
         $data->address = $request->input('address');
         $data->phone = $request->input('phone');
-        $data->fax = $request->input('fax');
         $data->email = $request->input('email');
         $data->smtpserver = $request->input('smtpserver');
         $data->smtpemail = $request->input('smtpemail');
@@ -100,7 +99,6 @@ class SettingController extends Controller
         $data->youtube = $request->input('youtube');
         $data->aboutus = $request->input('aboutus');
         $data->contact = $request->input('contact');
-        $data->references = $request->input('references');
         $data->status = $request->input('status');
 
 

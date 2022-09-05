@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Review;
+use App\Models\Shopcart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,8 @@ class ReviewController extends Controller
     public function index()
     {
         $datalist=Review::where('user_id',Auth::id())->get();
-        return view('home.user_reviews',['datalist'=>$datalist]);
+        $shopcart=Shopcart::select('id','product_id')->get();
+        return view('home.user_reviews',['datalist'=>$datalist,'shopcart'=>$shopcart]);
     }
 
     /**

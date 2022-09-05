@@ -11,7 +11,7 @@
         <header id="header" class="header clearfix">
             <div class="container-fluid clearfix container-width-93" id="site-header-inner">
                 <div id="logo" class="logo float-left">
-                    <a href="index.html" title="logo">
+                    <a href="/" title="logo">
                         <img src="{{asset('assets')}}/images/logo.png" alt="image" width="107" height="24" data-retina="{{asset('assets')}}/images/logo@2x.png" data-width="107" data-height="24">
                     </a>
                 </div><!-- /.logo -->
@@ -25,7 +25,7 @@
                         </form>
                     </li>
                     <li class="box-login">
-                        <a class="icon_login" href="#"></a>
+                        <a class="icon_login" href="{{route('userprofile')}}"></a>
                     </li>
                     @auth
                     <li class="box-cart nav-top-cart-wrapper">
@@ -78,29 +78,13 @@
                             <li>
                                 <a href="coming-soon.html">PAGE</a>
                                 <ul class="submenu">
-                                    <li><a href="coming-soon.html">Coming Soon</a></li>
-                                    <li><a href="404.html"> Error 404</a></li>
-                                    <li><a href="faqs.html">FAQs</a></li>
+                                    <li><a href="{{route('aboutus')}}">About Us</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+
                                 </ul>
                             </li>
-                            <li >
-                                <a href="blog-list.html">BLOG</a>
-                                <ul class="submenu">
-                                    <li ><a href="blog-list.html">Blog List Full</a></li>
-                                    <li><a href="blog-list-1.html">Blog list Slide 1</a></li>
-                                    <li><a href="blog-list-2.html">Blog list Slide 2</a></li>
-                                    <li><a href="blog-grid.html">Blog Gird Full</a></li>
-                                    <li><a href="blog-grid-1.html">Blog Gird Slide</a></li>
-                                    <li><a href="blog-detail.html">Blog Details</a></li>
-                                </ul><!-- /.submenu -->
-                            </li>
-                            <li>
-                                <a href="contact.html">CONTACT</a>
-                                <ul class="submenu right-submenu">
-                                    <li><a href="contact.html">Contact Style 1</a></li>
-                                    <li><a href="contact-v2.html">Contact Style 2</a></li>
-                                </ul>
-                            </li>
+
+
                         </ul>
                     </nav><!-- /.mainnav -->
                 </div><!-- /.nav-wrap -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Image;
+use App\Models\Message;
 use App\Models\Product;
 use App\Models\Review;
 use App\Models\Setting;
@@ -90,6 +91,17 @@ class HomeController extends Controller
         return redirect()->route('product',['id'=>$product->id,'slug'=>$product->slug])->with('success','Mesajınız kaydedilmiştir');
     }
 
+    public function aboutus(){
+        $setting=Setting::first();
+        $shopcart=Shopcart::select('id','product_id')->get();
+        return view('home.about',['setting'=>$setting,'shopcart'=>$shopcart]);
+    }
+    public function contact(){
+        $setting=Setting::first();
+        $shopcart=Shopcart::select('id','product_id')->get();
+        return view('home.contact',['setting'=>$setting,'page'=>'home','shopcart'=>$shopcart]);
+    }
+
     public function login(){
         return view('admin.login');
     }
@@ -120,5 +132,20 @@ class HomeController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+    public function sendmessage(Request $request)
+    {
+        $data = new Message();
+
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $data->subject = $request->input('subject');
+        $data->message = $request->input('message');
+
+
+        $data->save();
+
+        return redirect()->route('contact')->with('success','Mesajınız kaydedilmiştir');
     }
 }

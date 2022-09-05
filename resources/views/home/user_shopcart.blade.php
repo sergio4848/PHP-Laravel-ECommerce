@@ -100,6 +100,6 @@
 
         </div>
     </div>
-    @include('home._footer')
+
 @endsection
 

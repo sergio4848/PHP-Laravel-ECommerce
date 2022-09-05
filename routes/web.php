@@ -19,6 +19,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
 Route::get('/categoryproducts/{id}/{slug}', [HomeController::class, 'categoryproducts'])->name('categoryproducts');
 Route::post('/sendreview/{id}/{slug}', [HomeController::class, 'sendreview'])->name('sendreview');
+Route::get('/aboutus',[HomeController::class,'aboutus'])->name('aboutus');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 
 //Admin
 Route::middleware('auth')->prefix('admin')->group(function () {
@@ -171,7 +174,9 @@ Route::post('/admin/logincheck',[HomeController::class,'logincheck'])->name('adm
 Route::get('/admin/logout',[HomeController::class,'logout'])->name('admin_logout');
 Route::get('/logout',[HomeController::class,'logout'])->name('logout');
 
-
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

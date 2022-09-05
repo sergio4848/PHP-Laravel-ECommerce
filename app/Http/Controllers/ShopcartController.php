@@ -62,7 +62,7 @@ class ShopcartController extends Controller
 
         $data->save();
 
-        return redirect()->back()->with('Success','Ürün başarılı bir şekilde sepete eklendi!');
+        return redirect()->back()->with('success','Ürün başarılı bir şekilde sepete eklendi!');
     }
 
     /**

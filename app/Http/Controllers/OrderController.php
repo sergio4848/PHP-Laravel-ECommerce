@@ -18,7 +18,8 @@ class OrderController extends Controller
     public function index()
     {
         $datalist=Order::where('user_id',Auth::id())->get();
-        return view('home.user_order',['datalist'=>$datalist]);
+        $shopcart=Shopcart::select('id','product_id')->get();
+        return view('home.user_order',['datalist'=>$datalist,'shopcart'=>$shopcart]);
     }
 
     /**
@@ -29,7 +30,8 @@ class OrderController extends Controller
     public function create(Request $request)
     {
         $total=$request->input('total');
-        return view('home.user_order_add',['total'=>$total]);
+        $shopcart=Shopcart::select('id','product_id')->get();
+        return view('home.user_order_add',['total'=>$total,'shopcart'=>$shopcart]);
     }
 
     /**
@@ -71,6 +73,7 @@ class OrderController extends Controller
         $data3->delete();
 
         return redirect()->route('user_orders')->with('success','product Sipariş Edildi!');
+
     }
 
     /**
